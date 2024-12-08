@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-const page = () => {
+const Page = () => {
   const [theme, setTheme] = useState("light"); // Default theme
 
   useEffect(() => {
@@ -25,4 +25,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

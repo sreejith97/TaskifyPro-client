@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -24,7 +26,7 @@ export default function Register() {
 
     try {
       const res = await axios.post(
-       `${process.env.NEXT_PUBLIC_PROD_SERVER}/user/register`,
+        `${process.env.NEXT_PUBLIC_PROD_SERVER}/user/register`,
         { email, password, name }
       );
 
@@ -85,7 +87,7 @@ export default function Register() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-gray-900 py-8">
       <div className="w-full max-w-lg p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
         <div className="text-center mb-8">
-          <img src="/logo.png" alt="Logo" className="mx-auto w-24 mb-4" />
+          {/* <Image src="/logo.png" alt="Logo" className="mx-auto w-24 mb-4" /> */}
           <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white">
             {isOtpSent ? "Verify Your OTP" : "Create Your Account"}
           </h1>
@@ -212,12 +214,12 @@ export default function Register() {
         <div className="mt-6 text-center text-sm">
           <p className="text-gray-600 dark:text-gray-300">
             Already have an account?{" "}
-            <a
+            <Link
               href="/login"
               className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-500"
             >
               Login here
-            </a>
+            </Link>
           </p>
         </div>
       </div>

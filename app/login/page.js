@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { loadFromLocalStorage } from "@/redux/slices/authSlice";
 import { loginUser } from "@/redux/actions/authActions";
+import Link from "next/link";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -100,12 +101,12 @@ export default function Login() {
 
         {/* Forgot Password */}
         <div className="mt-4 text-center">
-          <a
+          <Link
             href="#"
             className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-500 text-sm"
           >
             Forgot your password?
-          </a>
+          </Link>
         </div>
 
         {/* Social Login Buttons */}
@@ -121,12 +122,12 @@ export default function Login() {
         <div className="mt-6 text-center text-sm">
           <p className="text-gray-600 dark:text-gray-300">
             Don’t have an account?{" "}
-            <a
+            <Link
               href="#"
               className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-500"
             >
               Sign up
-            </a>
+            </Link>
           </p>
         </div>
       </div>
