@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 const createTask = async (taskData, token) => {
-  const response = await fetch("http://localhost:3000/tasks", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_PROD_SERVER}/tasks`, {
     method: "POST",
     headers: {
       Accept: "*/*",

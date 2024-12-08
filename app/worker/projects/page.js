@@ -15,6 +15,7 @@ const Projects = () => {
   const [selectedProjectDetails, setSelectedProjectDetails] = useState(null);
   const [myWorkers, setMyWorkers] = useState([]);
   const token = useSelector((state) => state.auth.token);
+  const role = useSelector((state) => state.auth.role);
 
   const fetchProjects = async () => {
     try {
@@ -121,12 +122,16 @@ const Projects = () => {
     <div className="h-full flex flex-col items-center justify-center pb-8 px-4 sm:px-2">
       <div className="text-white w-full py-3 font-medium flex justify-between items-center flex-wrap">
         <h2 className="text-[25px] mb-2 sm:mb-0">My Projects</h2>
-        <button
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
-          onClick={() => setIsModalOpen(true)}
-        >
-          Create
-        </button>
+        {role === "ADMIN" ? (
+          <button
+            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Create
+          </button>
+        ) : (
+          ""
+        )}
       </div>
 
       {isModalOpen && (
@@ -209,7 +214,7 @@ const Projects = () => {
         myWorkers={myWorkers}
         fetchProjectDetails={fetchProjectDetails}
         fetchProjects={fetchProjects}
-        isAdmin={true}
+       
       />
     </div>
   );

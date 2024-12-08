@@ -12,6 +12,7 @@ const Sidebar = ({
   fetchProjects,
 }) => {
   const token = useSelector((state) => state.auth.token);
+  const role = useSelector((state) => state.auth.role);
   const handleClickOutside = (e) => {
     if (e.target.id === "sidebar-overlay") {
       onClose();
@@ -139,31 +140,33 @@ const Sidebar = ({
                       </div>
                     </div>
                   ))}
-                  {myWorkers
-                    ?.filter(
-                      (worker) =>
-                        !projectDetails?.assignedWorkers
-                          .map((worker) => worker?.workerId)
-                          ?.includes(worker.workerId)
-                    )
-                    ?.map((worker) => (
-                      <div key={worker.workerId}>
-                        <div
-                          className="bg-gray-600 rounded-md px-2 py-1 flex flex-row items-center justify-center gap-x-3"
-                          key={worker.workerId}
-                        >
-                          {worker.workerName}
-                          <div>
-                            <MdOutlineClose
-                              className="cursor-pointer text-[20px] rotate-45"
-                              onClick={() =>
-                                addWorkerToProject(worker?.workerId)
-                              }
-                            />
+                  {role === "ADMIN"
+                    ? myWorkers
+                        ?.filter(
+                          (worker) =>
+                            !projectDetails?.assignedWorkers
+                              .map((worker) => worker?.workerId)
+                              ?.includes(worker.workerId)
+                        )
+                        ?.map((worker) => (
+                          <div key={worker.workerId}>
+                            <div
+                              className="bg-gray-600 rounded-md px-2 py-1 flex flex-row items-center justify-center gap-x-3"
+                              key={worker.workerId}
+                            >
+                              {worker.workerName}
+                              <div>
+                                <MdOutlineClose
+                                  className="cursor-pointer text-[20px] rotate-45"
+                                  onClick={() =>
+                                    addWorkerToProject(worker?.workerId)
+                                  }
+                                />
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    ))}
+                        ))
+                    : ""}
 
                   {/* <p>{projectDetails.projectId}</p> */}
                 </div>
