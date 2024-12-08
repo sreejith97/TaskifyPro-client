@@ -7,13 +7,16 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import TaskCreatePopup from "@/components/TaskCreatePopup/TaskCreatePopup";
 
 const fetchProjects = async (token) => {
-  const response = await fetch("http://localhost:3000/projects", {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_PROD_SERVER}/projects`,
+    {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   const data = await response.json();
   if (data && data.data) {
     return data.data;
@@ -22,29 +25,35 @@ const fetchProjects = async (token) => {
 };
 
 const fetchTasks = async (projectId, token) => {
-  const response = await fetch(`http://localhost:3000/tasks/${projectId}`, {
-    method: "GET",
-    headers: {
-      accept: "*/*",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_PROD_SERVER}/tasks/${projectId}`,
+    {
+      method: "GET",
+      headers: {
+        accept: "*/*",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   const tasks = await response.json();
   return tasks;
 };
 
 const updateTaskStatus = async (taskId, status, token) => {
-  const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
-    method: "PUT",
-    headers: {
-      accept: "*/*",
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      status: status,
-    }),
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_PROD_SERVER}/tasks/${taskId}`,
+    {
+      method: "PUT",
+      headers: {
+        accept: "*/*",
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        status: status,
+      }),
+    }
+  );
   return response.json();
 };
 
