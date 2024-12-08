@@ -1,36 +1,169 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TaskifyPro - Company Task and Workflow Management
 
-## Getting Started
+TaskifyPro is a task and workflow management application designed to streamline task assignments, monitor progress, and improve productivity for companies. It features role-based dashboards for Managers and Employees, ensuring efficient collaboration and task management.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Demo
+
+[Live Demo Link](https://taskify-pro-inky.vercel.app/) _(Replace this with the actual deployed app link)_
+
+---
+
+## 🌟 Features
+
+### Common Features:
+
+- Secure login with role-based access.
+- Dark and light themes.
+- Notifications and reminders (email or in-app).
+
+### Manager Features:
+
+- **Task Management:** Create tasks with details, assign to employees, set priorities, and deadlines.
+- **Team Management:** Add or remove employees and manage roles.
+- **Reports and Analytics:** Track task progress, employee performance, and workload.
+- **Project Management:** Group tasks under projects.
+
+### Employee Features:
+
+- **Task Dashboard:** View assigned tasks with deadlines and priorities.
+- **Task Updates:** Mark tasks as completed or in progress and provide feedback.
+- **Personal Calendar:** Manage deadlines and schedules.
+- **Collaboration:** Request assistance or escalate tasks to managers.
+
+### Extra Features:
+
+- **Kanban Board:** Drag-and-drop task management.
+- **Time Tracking:** Log time spent on tasks.
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend:
+
+- **Framework:** Next.js 14
+- **Styling:** Tailwind CSS
+- **State Management:** Redux Toolkit or Context API
+
+### Backend:
+
+- **Framework:** Node.js or NestJS
+- **Database:** MongoDB
+- **Authentication:** JWT
+
+---
+
+## 📂 Project Setup
+
+### Prerequisites
+
+1. Ensure Node.js (v16 or higher) and npm/yarn are installed.
+2. Install Git.
+
+### Steps to Run the Application Locally
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/your-username/TaskifyPro.git
+   cd TaskifyPro
+   ```
+
+2. **Install Dependencies:**
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Environment Variables:**
+   Create a `.env` file in the root directory and add the following:
+
+   ```env
+   NEXT_PUBLIC_API_URL=https://taskifypro.onrender.com
+   ```
+
+4. **Run the Development Server:**
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+   Visit http://localhost:3001 in your browser.
+
+5. **Build for Production:**
+   ```bash
+   npm run build
+   npm start
+   ```
+
+---
+
+## 🔧 Usage
+
+### Workflow:
+
+1. **Sign Up:** Register as a Manager or Admin.
+2. **Create Workers:** Managers can create workers from the dashboard.
+3. **Assign Tasks:** Managers can assign tasks to workers and track their progress.
+
+### Role-Based Dashboards:
+
+- **Manager Dashboard:** Task creation, assignment, and tracking.
+- **Employee Dashboard:** Task updates, feedback, and collaboration.
+
+---
+
+## 🌈 Theming
+
+- Toggle between **dark** and **light** themes using the theme switcher in the app.
+
+---
+
+## 🧩 File Structure
+
+```
+TaskifyPro/
+├── app/              # Next.js app directory (routes)
+├── components/       # Reusable UI components
+├── public/           # Static assets
+├── redux/            # Redux Toolkit setup (if applicable)
+├── lib/            # Utility functions
+└── .env              # Environment variables (excluded from Git)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🤝 Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add some feature"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a pull request.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📜 License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📬 Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For any questions or feedback, reach out at: sreejithspillai.dev@gmail.com
