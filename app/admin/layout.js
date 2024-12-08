@@ -16,27 +16,27 @@ const Layout = ({ children }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (isAuthenticated === null) return; // Wait for auth state to initialize
+    if (isAuthenticated === null) return; 
 
     if (!isAuthenticated) {
-      // Redirect to login only if not authenticated
+    
       router.push("/login");
     } else if (role !== "ADMIN") {
-      // Redirect to user dashboard if not admin
+      
       router.push("/worker");
     } else {
-      // If everything is fine, stop loading
+    
       setIsLoading(false);
     }
   }, [isAuthenticated, role, router]);
 
   const handleLogout = () => {
-    dispatch(logout()); // Dispatch logout action
-    router.push("/login"); // Redirect to login page after logout
+    dispatch(logout()); 
+    router.push("/login");
   };
 
   if (isLoading) {
-    return <div>Loading...</div>; // Show a loading indicator while waiting for auth check
+    return <div>Loading...</div>; 
   }
 
   return (

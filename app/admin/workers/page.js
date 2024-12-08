@@ -4,20 +4,20 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 const Workers = () => {
-  // State to store workers and loading/error states
+
   const [workers, setWorkers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false); 
   const [newWorker, setNewWorker] = useState({
     email: "",
     password: "",
     role: "WORKER",
     name: "",
-  }); // State for new worker form
+  }); 
   const token = useSelector((state) => state.auth.token);
 
-  // Fetch workers data
+  
   const fetchWorkers = async () => {
     try {
       const response = await axios.get(
@@ -39,9 +39,9 @@ const Workers = () => {
 
   useEffect(() => {
     fetchWorkers();
-  }, []); // Empty dependency array to only fetch on mount
+  }, []); 
 
-  // Handle toggling the worker's status
+  
   const toggleWorkerStatus = async (workerId, currentStatus) => {
     try {
       await axios.put(
@@ -58,14 +58,13 @@ const Workers = () => {
           },
         }
       );
-      // After successful status update, fetch workers again
+     
       fetchWorkers();
     } catch (err) {
       setError("Failed to update status.");
     }
   };
 
-  // Function to create a new worker
   const createWorker = async () => {
     try {
       await axios.post(
@@ -84,7 +83,6 @@ const Workers = () => {
           },
         }
       );
-      // After creating, close modal and refresh the workers list
       setIsModalOpen(false);
       fetchWorkers();
     } catch (err) {
@@ -92,7 +90,6 @@ const Workers = () => {
     }
   };
 
-  // UseMemo to memoize the workers list to prevent unnecessary recalculations
   const memoizedWorkers = useMemo(() => workers, [workers]);
 
   const handleInputChange = (e) => {
@@ -119,7 +116,6 @@ const Workers = () => {
         </button>
       </div>
 
-      {/* Modal for creating a new worker */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-600 bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">

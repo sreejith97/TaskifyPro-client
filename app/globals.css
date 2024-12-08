@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add to your global CSS file */
 .switch {
   position: relative;
   display: inline-block;
@@ -51,12 +50,12 @@ input:checked + .slider:before {
 .table {
   display: flex;
   flex-direction: column;
-  gap: 0px; /* Adds space between rows */
+  gap: 0px; 
 }
 
 .row {
   display: flex;
-  gap: 0px; /* Adds space between cells */
+  gap: 0px;
 }
 
 .cell {

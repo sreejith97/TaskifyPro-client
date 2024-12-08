@@ -77,7 +77,7 @@ export default function Register() {
   const handlePasswordChange = (e) => {
     const password = e.target.value;
     setPassword(password);
-    // Check for password strength (min 8 characters, must contain at least one number and one special character)
+ 
     const strongPasswordPattern =
       /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$/;
     setIsPasswordStrong(strongPasswordPattern.test(password));

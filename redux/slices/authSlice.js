@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import CryptoJS from "crypto-js"; // For encryption
+import CryptoJS from "crypto-js"; 
 
 const initialState = {
-  isAuthenticated: null, // Start with null to indicate loading state
+  isAuthenticated: null, 
   role: null,
   token: null,
 };
@@ -46,10 +46,10 @@ const authSlice = createSlice({
           state.token = decryptedData.token;
         } catch (error) {
           console.error("Failed to decrypt auth data:", error);
-          state.isAuthenticated = false; // Fallback to unauthenticated
+          state.isAuthenticated = false; 
         }
       } else {
-        state.isAuthenticated = false; // No data in localStorage
+        state.isAuthenticated = false; 
       }
     },
   },

@@ -1,4 +1,3 @@
-// authActions.js
 
 import axios from "axios";
 import { loginSuccess, logout } from "../slices/authSlice";
@@ -27,7 +26,6 @@ export const loginUser = (credentials) => async (dispatch) => {
     const data = res.data;
     const tokenPayload = JSON.parse(atob(data.access_token.split(".")[1]));
 
-    // Store the token and role in localStorage
     localStorage.setItem("token", data.access_token);
     localStorage.setItem("role", tokenPayload.role);
 

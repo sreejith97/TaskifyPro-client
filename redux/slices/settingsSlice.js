@@ -1,11 +1,11 @@
-// slices/settingsSlice.js
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchSettings = createAsyncThunk(
   "settings/fetchSettings",
   async (_, { getState }) => {
-    const token = getState().auth.token; // Get token from auth state
+    const token = getState().auth.token;
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_PROD_SERVER}/settings`,
       {
@@ -21,7 +21,7 @@ export const fetchSettings = createAsyncThunk(
 export const updateTheme = createAsyncThunk(
   "settings/updateTheme",
   async (theme, { getState }) => {
-    const token = getState().auth.token; // Get token from auth state
+    const token = getState().auth.token; 
     const response = await axios.put(
       `${process.env.NEXT_PUBLIC_PROD_SERVER}/settings/update/theme`,
       { theme },
@@ -39,14 +39,14 @@ export const updateTheme = createAsyncThunk(
 const settingsSlice = createSlice({
   name: "settings",
   initialState: {
-    darkTheme: true, // Dark mode true/false
+    darkTheme: true,
     notification: null,
     loading: false,
     error: null,
   },
   reducers: {
     changeTheme: (state) => {
-      state.darkTheme = !state.darkTheme; // Toggle the theme
+      state.darkTheme = !state.darkTheme; 
     },
   },
   extraReducers: (builder) => {
@@ -59,18 +59,18 @@ const settingsSlice = createSlice({
         state.loading = false;
         state.darkTheme = action.payload.darkTheme;
         state.notification = action.payload.notification;
-        // console.log(action.payload.darkTheme, action.payload.notification);
+        
       })
       .addCase(fetchSettings.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
       .addCase(updateTheme.fulfilled, (state, action) => {
-        state.darkTheme = action.payload.darkTheme; // Ensure this updates the correct key
+        state.darkTheme = action.payload.darkTheme; 
       });
   },
 });
 
-export const { changeTheme } = settingsSlice.actions; // Export the action
+export const { changeTheme } = settingsSlice.actions; 
 
 export default settingsSlice.reducer;

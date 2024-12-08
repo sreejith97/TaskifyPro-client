@@ -22,13 +22,13 @@ const AdminDashboard = ({ children }) => {
 
   return (
     <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900">
-      {/* Sidebar */}
+ 
       <div
         className={`${
           isSidebarOpen ? "w-64" : "w-20"
         } bg-white dark:bg-gray-800 h-screen p-5 flex flex-col justify-between transition-all duration-300 shadow-lg`}
       >
-        {/* Sidebar Header */}
+    
         <div className="flex flex-row items-center justify-start gap-x-5">
           <h2
             className={`text-white font-bold text-4xl transition-all duration-300 delay-300 ${
@@ -39,7 +39,7 @@ const AdminDashboard = ({ children }) => {
           </h2>
         </div>
 
-        {/* Sidebar Links */}
+ 
         <nav className="mt-10 space-y-4">
           <Link
             href="/admin"
@@ -108,7 +108,7 @@ const AdminDashboard = ({ children }) => {
           </Link>
         </nav>
 
-        {/* Sidebar Footer */}
+    
         <div className="mt-auto">
           <button
             onClick={handleLogout}
@@ -126,9 +126,9 @@ const AdminDashboard = ({ children }) => {
         </div>
       </div>
 
-      {/* Main Content */}
+    
       <div className="flex-1 flex flex-col">
-        {/* Top Navigation Bar */}
+     
         <div className="bg-white dark:bg-gray-800 shadow-lg py-4 px-6 flex justify-between items-center">
           <div className="flex flex-row items-center justify-center gap-x-3">
             <button
@@ -152,9 +152,8 @@ const AdminDashboard = ({ children }) => {
           </div>
         </div>
 
-        {/* Main Content Area */}
         <div className="flex-1 p-4">
-          {/* Dashboard Content */}
+   
           <main className="flex-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-3">
             {children}
           </main>

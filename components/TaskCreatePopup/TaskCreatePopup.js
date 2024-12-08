@@ -45,12 +45,12 @@ const TaskCreatePopup = ({
 
     try {
       const newTask = await createTask(taskData, token);
-      onCreate(newTask); // Add new task to parent
+      onCreate(newTask); 
       setTitle("");
       setDescription("");
       setPriority("MEDIUM");
       setDeadline("");
-      setAssigneeId(""); // Reset assigneeId after task creation
+      setAssigneeId(""); 
     } catch (err) {
       setError(err.message);
     }

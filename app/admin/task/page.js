@@ -125,7 +125,7 @@ const Page = () => {
   const [selectedProjectId, setSelectedProjectId] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [showPopup, setShowPopup] = useState(false); // State to manage popup visibility
+  const [showPopup, setShowPopup] = useState(false);visibility
   const token = useSelector((state) => state.auth.token);
 
   useEffect(() => {
@@ -178,8 +178,8 @@ const Page = () => {
   };
 
   const handleNewTask = (newTask) => {
-    setTasks((prevTasks) => [...prevTasks, newTask]); // Add new task to the list
-    setShowPopup(false); // Close the popup after adding the task
+    setTasks((prevTasks) => [...prevTasks, newTask]); 
+    setShowPopup(false); 
   };
   console.log(projects);
 

@@ -9,15 +9,15 @@ export default function WorkerDashboard() {
   const router = useRouter();
 
   const handleLogout = () => {
-    dispatch(logout()); // Dispatch logout action
-    router.push("/login"); // Redirect to login page after logout
+    dispatch(logout()); 
+    router.push("/login"); 
   };
 
   return (
     <div>
       <h1>Worker Dashboard</h1>
       <p>Welcome, Worker! Manage your tasks and teams here.</p>
-      <button onClick={handleLogout}>Logout</button> {/* Logout button */}
+      <button onClick={handleLogout}>Logout</button> 
     </div>
   );
 }

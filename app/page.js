@@ -5,7 +5,6 @@ import Link from "next/link";
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
 
-  // Initialize dark mode based on localStorage or default to light mode
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
@@ -13,12 +12,10 @@ export default function Home() {
     }
   }, []);
 
-  // Toggle dark mode
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
   };
 
-  // Apply dark or light mode to the HTML element
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -31,7 +28,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white">
-      {/* Header Section */}
+  
       <header className="p-4 flex items-center justify-between bg-white dark:bg-gray-800 shadow-md">
         <h1 className="text-2xl font-bold">TaskifyPro</h1>
         <button
@@ -42,7 +39,6 @@ export default function Home() {
         </button>
       </header>
 
-      {/* Hero Section */}
       <section className="flex flex-col items-center justify-center py-20 px-6 text-center">
         <h2 className="text-4xl font-extrabold mb-4">
           Simplify Task and Workflow Management
@@ -65,7 +61,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="bg-gray-100 dark:bg-gray-800 py-16">
         <div className="max-w-6xl mx-auto px-6">
           <h3 className="text-3xl font-bold text-center mb-8">Features</h3>
@@ -113,7 +108,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer Section */}
+   
       <footer className="p-6 bg-white dark:bg-gray-800 text-center">
         <p className="text-gray-600 dark:text-gray-300">
           &copy; 2024 TaskifyPro. All Rights Reserved.

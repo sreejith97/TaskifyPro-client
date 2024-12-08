@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 const Page = () => {
-  const [theme, setTheme] = useState("light"); // Default theme
+  const [theme, setTheme] = useState("light"); 
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");

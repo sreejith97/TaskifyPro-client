@@ -24,16 +24,16 @@ const Sidebar = ({
 
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_PROD_SERVER}/projects/{adminId}/assign-workers`, // Use the actual adminId here
+        `${process.env.NEXT_PUBLIC_PROD_SERVER}/projects/{adminId}/assign-workers`, 
         {
-          projectId: projectDetails?.projectId, // projectId to be passed in the request body
+          projectId: projectDetails?.projectId,
           workers: [workerId],
         },
         {
           headers: {
-            accept: "*/*", // Accept any response type
-            Authorization: `Bearer ${token}`, // Authorization token
-            "Content-Type": "application/json", // Content type should be JSON
+            accept: "*/*",
+            Authorization: `Bearer ${token}`, 
+            "Content-Type": "application/json",
           },
         }
       );
@@ -168,7 +168,7 @@ const Sidebar = ({
                         ))
                     : ""}
 
-                  {/* <p>{projectDetails.projectId}</p> */}
+         
                 </div>
               </div>
             </div>

@@ -10,7 +10,7 @@ const Page = () => {
   const [notification, setNotification] = useState(false);
 
   useEffect(() => {
-    // Fetch settings when the page loads
+  
     dispatch(fetchSettings());
     console.log(darkTheme);
   }, [dispatch]);

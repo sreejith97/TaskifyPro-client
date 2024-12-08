@@ -14,27 +14,25 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [isInitialLoading, setIsInitialLoading] = useState(true); // Track initial loading state
+  const [isInitialLoading, setIsInitialLoading] = useState(true); 
 
-  // Load authentication state from localStorage on component mount
   useEffect(() => {
-    dispatch(loadFromLocalStorage()); // Check if there's saved auth data
+    dispatch(loadFromLocalStorage()); 
   }, [dispatch]);
 
-  // Handle redirection once authentication state is confirmed
   useEffect(() => {
     if (isAuthenticated) {
-      setIsInitialLoading(false); // Stop loading once auth state is loaded
+      setIsInitialLoading(false); 
       router.push(role === "ADMIN" ? "/admin" : "/worker");
     } else {
-      setIsInitialLoading(false); // If not authenticated, stop loading
+      setIsInitialLoading(false); 
     }
   }, [isAuthenticated, role, router]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError(""); // Clear previous errors
+    setError("");
     try {
       await dispatch(loginUser({ email, password }));
     } catch (err) {
@@ -44,12 +42,10 @@ export default function Login() {
     }
   };
 
-  // Show loading state until we confirm the user's authentication status
   if (isInitialLoading) {
     return <div>Loading...</div>;
   }
 
-  // If the user is already authenticated, we don't render the login form
   if (isAuthenticated) {
     return null;
   }
@@ -86,10 +82,8 @@ export default function Login() {
             />
           </div>
 
-          {/* Error or Success Message */}
           {error && <p className="text-red-500 text-center">{error}</p>}
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
@@ -99,7 +93,6 @@ export default function Login() {
           </button>
         </form>
 
-        {/* Forgot Password */}
         <div className="mt-4 text-center">
           <Link
             href="#"
@@ -109,7 +102,6 @@ export default function Login() {
           </Link>
         </div>
 
-        {/* Social Login Buttons */}
         <div className="mt-6 space-y-4">
           <button className="w-full py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-300">
             Login with Google
