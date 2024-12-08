@@ -44,7 +44,11 @@ const settingsSlice = createSlice({
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    changeTheme: (state) => {
+      state.darkTheme = !state.darkTheme; // Toggle the theme
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchSettings.pending, (state) => {
@@ -55,7 +59,7 @@ const settingsSlice = createSlice({
         state.loading = false;
         state.darkTheme = action.payload.darkTheme;
         state.notification = action.payload.notification;
-        console.log(action.payload.darkTheme, action.payload.notification);
+        // console.log(action.payload.darkTheme, action.payload.notification);
       })
       .addCase(fetchSettings.rejected, (state, action) => {
         state.loading = false;
@@ -66,5 +70,7 @@ const settingsSlice = createSlice({
       });
   },
 });
+
+export const { changeTheme } = settingsSlice.actions; // Export the action
 
 export default settingsSlice.reducer;
